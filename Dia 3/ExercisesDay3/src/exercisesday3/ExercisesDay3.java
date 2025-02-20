@@ -216,6 +216,19 @@ public class ExercisesDay3 {
                 
             case 18: //Escribe un programa para calcular el MCD (Máximo Común Divisor) de dos números dados. 
                 
+                System.out.println("Ingresa un numero: ");
+                int a = scanner.nextInt();
+                
+                System.out.println("Ingresa el segundo numero: ");
+                int b = scanner.nextInt();
+                
+                while(b!=0){
+                    int temp = b;
+                    b = a % b;
+                    a = temp;
+                    System.out.println(a);
+                }
+                
             case 19: // Escribe un programa que permita ingresar números hasta que el usuario lo desee y, al final, 
                      //muestre la cantidad de números positivos, negativos y ceros ingresados.  
                 
@@ -324,7 +337,7 @@ public class ExercisesDay3 {
                     int digit = nums3 % 10;
                     int fact = 1;
                     
-                    for(int i = 1; i<digit; i++){
+                    for(int i = 1; i < digit; i++){
                         fact *= i;
                     }
                     
@@ -425,7 +438,80 @@ public class ExercisesDay3 {
                 String bina3 = Integer.toOctalString(bina2);
                 System.out.println("El numero octal es: " + bina3);
                 break;   
+            
+            case 31: //Escribe un programa para convertir un número binario a decimal.
+                
+                System.out.println("Ingresa un numero binario: ");
+                String bing = scanner.nextLine();
+                
+            case 32: //Escribe un programa para convertir un número binario a hexadecimal.
+                
+                System.out.println("Ingresa un numero binario: ");
+                int bing1 = scanner.nextInt();
+                String bing3 = Integer.toHexString(bing1).toUpperCase();
+                
+                System.out.println("El numero hexadecimal es: " + bing3);
+                break;
+                
+            case 33: //Escribe un programa para convertir un número octal a binario.
+                
+            case 34: //Escribe un programa para convertir un número octal a decimal.
+                
+            case 35: //Escribe un programa para convertir un número octal a hexadecimal.
+                
+                System.out.println("Ingresa un numero octal: ");
+                int oct = scanner.nextInt();
+                String oct1 = Integer.toHexString(oct).toUpperCase();
+                
+                System.out.println("El numero hexadecimal es: " + oct1);
+                break;
+                
+            case 36: //Escribe un programa para encontrar el complemento a 1 de un número en Java.
+                
+            case 37: //Escribe un programa para encontrar el complemento a 2 de un número binario en Java.
+                
+            case 38: //Escribe un programa para imprimir la serie de Fibonacci hasta n términos.
+                
+            case 39: //Escribe un programa para verificar si un número es un Número Fuerte o no.
+                
+                System.out.println("Ingresa un numero: ");
+                int numsi3 = scanner.nextInt();
+                
+                int compit = 0, original1 = numsi3;
+                
+                while(numsi3>0){
+                    int digit = numsi3 % 10;
+                    int fact = 1;
+                    
+                    for(int i = 1; i < digit; i++){
+                        fact *= i;
+                    }
+                    
+                    compit += fact;
+                    numsi3 /= 10;
+                }
+                
+                System.out.println(compit == original1 ? original1 + " es un numero fuerte" :original1+ " no es un numero fuerte.");
+                break;
+                
+            case 40: //Escribe un programa para imprimir todos los Números Fuertes del 1 al 100000.
+                
+                
+            case 41: //Escribe un programa para imprimir todos los Números Perfectos del 1 al 10000.
+                
+            case 42: //Escribe un programa para verificar si un número es un Número Perfecto o no.
+                
+                System.out.println("Ingresa el numero que deseas verificar: ");
+                int ver = scanner.nextInt();
+                
+            case 43: //Escribe un programa para imprimir todos los Números de Armstrong entre 1 y 1000.
+                
+            case 44: //Escribe un programa para verificar si un número es un Número de Armstrong o no.
+                
+                System.out.println("Ingresa el numero que deseas verificar: ");
+                int veri = scanner.nextInt();
+                
+            case 45: //Escribe un programa para imprimir los factores primos en Java.
         }
-    }
-    
+    } 
 }
