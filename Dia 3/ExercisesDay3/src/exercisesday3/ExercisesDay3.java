@@ -216,8 +216,6 @@ public class ExercisesDay3 {
                 
             case 18: //Escribe un programa para calcular el MCD (Máximo Común Divisor) de dos números dados. 
                 
-                
-                
             case 19: // Escribe un programa que permita ingresar números hasta que el usuario lo desee y, al final, 
                      //muestre la cantidad de números positivos, negativos y ceros ingresados.  
                 
@@ -291,6 +289,7 @@ public class ExercisesDay3 {
                     }
                 }
                 System.out.println("La suma de todos los numeros divisibles por 9 es de: " + suma2);
+                break;
                 
             case 22: //Escribe un programa para convertir un número binario a decimal sin usar arreglos,
                      //funciones ni bucles while.  
@@ -316,6 +315,26 @@ public class ExercisesDay3 {
                 
             case 23: // Escribe un programa para verificar si un número es un Número Fuerte o no. 
                 
+                System.out.println("Ingresa un numero: ");
+                int nums3 = scanner.nextInt();
+                
+                int comp = 0, original = nums3;
+                
+                while(nums3>0){
+                    int digit = nums3 % 10;
+                    int fact = 1;
+                    
+                    for(int i = 1; i<digit; i++){
+                        fact *= i;
+                    }
+                    
+                    comp += fact;
+                    nums3 /= 10;
+                }
+                
+                System.out.println(comp == original ? original + " es un numero fuerte" :original+ " no es un numero fuerte.");
+                break;
+                
             case 24: //Escribe un programa para convertir un número hexadecimal a decimal.   
                 
                 System.out.println("Ingrese un número hexadecimal: ");
@@ -337,7 +356,75 @@ public class ExercisesDay3 {
                     potencia1++;
                 }
                 System.out.println("El numero decimal es: " + decimal1);
-
+                break;
+                
+            case 25: //Escribe un programa para convertir un número hexadecimal a octal.
+                
+                System.out.println("Ingresa un numero que sea hexadecimal: ");
+                String uno = scanner.nextLine();
+                
+                int var = Integer.parseInt(uno, 16);
+                String dos = Integer.toOctalString(var);
+                
+                System.out.println("El numero octal es: " + dos);
+                break;
+                
+            case 26: //Escribe un programa para convertir un número hexadecimal a binario.
+                
+                System.out.println("Ingresa un numero que sea hexadecimal: ");
+                String tres = scanner.nextLine();
+                
+                int var2 = Integer.parseInt(tres, 16);
+                String four = Integer.toBinaryString(var2);
+                
+                System.out.println("El numero binario es: " + four);
+                break;
+                
+            case 27: //Escribe un programa para convertir un número decimal a hexadecimal.
+                
+                System.out.println("Ingresa un numero que sea decimal: ");
+                int dec = scanner.nextInt();
+                String dec2 = Integer.toHexString(dec).toUpperCase();
+                
+                System.out.println("El numero hexadecimal es: " + dec2);
+                break;
+                
+            case 28: //Escribe un programa para convertir un número decimal a octal.
+                
+                System.out.println("Por favor introduce un numero decimal: ");
+                int dec3 = scanner.nextInt();
+                String dec4 = Integer.toOctalString(dec3);
+                
+                System.out.println("El numero octal es: " + dec4);
+                break;
+                
+            case 29: //Escribe un programa para convertir un número decimal a binario.
+                
+                System.out.println("Ingresa un numero decimal: ");
+                int dec5 = scanner.nextInt();
+                StringBuilder dec6 = new StringBuilder();
+                
+                if(dec5==0){
+                    dec6.append("0");
+                }
+                else{
+                    while(dec5>0){
+                        dec6.insert(0, dec5 % 2);
+                        dec5 = dec5 / 2;
+                    }
+                }
+                System.out.println("El numero binario es: " + dec6.toString());
+                break;
+            
+            case 30: //Escribe un programa para convertir un número binario a octal.
+                
+                System.out.println("Ingresa un numero binario: ");
+                String bina = scanner.nextLine();
+                int bina2 = Integer.parseInt(bina, 2);
+                
+                String bina3 = Integer.toOctalString(bina2);
+                System.out.println("El numero octal es: " + bina3);
+                break;   
         }
     }
     
