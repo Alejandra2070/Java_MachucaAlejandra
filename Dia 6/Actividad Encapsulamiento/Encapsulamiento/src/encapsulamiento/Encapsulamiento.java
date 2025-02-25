@@ -11,6 +11,5 @@ public class Encapsulamiento {
         e.setSalario(0);
         System.out.println(e.getSalario());//para obtener el salario y hacer la validacion
         e.mostrarInformacion(); //para mostrar la informacion
-    }
-    
+    } 
 }
