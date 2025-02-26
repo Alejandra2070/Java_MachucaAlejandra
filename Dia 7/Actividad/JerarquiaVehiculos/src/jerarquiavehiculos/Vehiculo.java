@@ -11,6 +11,14 @@ public class Vehiculo {
         this.marca = marca;
         this.modelo = modelo;
     }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
     
     public void mostrarDetalles(){
         System.out.println("Marca del vehículo: " + marca);

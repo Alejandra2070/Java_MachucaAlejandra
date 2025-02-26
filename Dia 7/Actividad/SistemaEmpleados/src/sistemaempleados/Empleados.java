@@ -12,13 +12,18 @@ public class Empleados {
         this.salario = salario;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
     public double getSalario() {
         return salario;
     }
     
-    public void calcularBonificacion(){
+    public double calcularBonificacion(){
         double bonificacion = salario * 0.10;
-        System.out.println("Tu salario es de " + salario + " y tu bonificación es de: " + bonificacion);
+        System.out.println("Tu salario es de " + salario);
+        return bonificacion;
     }
     
 }

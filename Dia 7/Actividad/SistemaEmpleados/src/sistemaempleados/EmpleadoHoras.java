@@ -9,10 +9,10 @@ public class EmpleadoHoras extends Empleados{
     }
 
     @Override
-    public void calcularBonificacion() {
+    public double calcularBonificacion() {
         int totalHoras = horasTrabajadas * 15000;
         double bonificacion = getSalario() * 0.10 + totalHoras;
-        System.out.println("Tu bonificación es de: " + bonificacion);
+        return bonificacion;
     }
     
     

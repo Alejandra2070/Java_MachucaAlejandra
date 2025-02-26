@@ -9,5 +9,4 @@ public class JerarquiaVehiculos {
         Moto moto1 = new Moto("Tracker", "Yamaha", "XT 500");
         moto1.mostrarDetalles();
     }
-    
 }

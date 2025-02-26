@@ -7,9 +7,10 @@ public class EmpleadoFijo extends Empleados {
     }
 
     @Override
-    public void calcularBonificacion() {
+    public double calcularBonificacion() {
         double bonificacion = getSalario() * 0.20;
-        System.out.println("Tu salario es de: " + getSalario() + " y tu bonificacion es de: " + bonificacion);
+        System.out.println("Tu salario es de: " + getSalario());
+        return bonificacion;
     }
     
     

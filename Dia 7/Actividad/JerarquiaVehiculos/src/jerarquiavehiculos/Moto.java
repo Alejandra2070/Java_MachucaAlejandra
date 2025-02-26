@@ -10,6 +10,9 @@ public class Moto extends Vehiculo{
 
     @Override
     public void mostrarDetalles() {
+        System.out.println("********* Motos *********");
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Modelo: " + getModelo());
         System.out.println("Tipo de manubrio: " + tipoManubrio);
     }
 }
