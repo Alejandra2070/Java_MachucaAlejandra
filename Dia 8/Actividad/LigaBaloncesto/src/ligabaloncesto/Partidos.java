@@ -14,60 +14,6 @@ public class Partidos {
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;
         this.fechaPartido = fechaPartido;
-    } 
-
-    public String getEquipoLocal() {
-        return equipoLocal;
-    }
-
-    public void setEquipoLocal(String equipoLocal) {
-        this.equipoLocal = equipoLocal;
-    }
-
-    public String getEquipoVisitante() {
-        return equipoVisitante;
-    }
-
-    public void setEquipoVisitante(String equipoVisitante) {
-        this.equipoVisitante = equipoVisitante;
-    }
-
-    public int getCestasEquipoLocal() {
-        return cestasEquipoLocal;
-    }
-
-    public void setCestasEquipoLocal(int cestasEquipoLocal) {
-        this.cestasEquipoLocal = cestasEquipoLocal;
-    }
-
-    public int getCestasEquipoVisitante() {
-        return cestasEquipoVisitante;
-    }
-
-    public void setCestasEquipoVisitante(int cestasEquipoVisitante) {
-        this.cestasEquipoVisitante = cestasEquipoVisitante;
-    }
-
-    public String getFinalizacion() {
-        return finalizacion;
-    }
-
-    public void setFinalizacion(String finalizacion) {
-        this.finalizacion = finalizacion;
-    }
-
-    public String getFechaPartido() {
-        return fechaPartido;
-    }
-
-    public void setFechaPartido(String fechaPartido) {
-        this.fechaPartido = fechaPartido;
-    }
-    
-    //Resultado
-    public void resultado(){
-        System.out.println("El resultado del equipo local " + equipoLocal + " es de: " + cestasEquipoLocal + " puntos.");
-        System.out.println("El resultado del equipo visitante " + equipoVisitante + "es de: " + cestasEquipoVisitante + " puntos.");
     }
 
     //Ganador
@@ -82,5 +28,37 @@ public class Partidos {
         else{
             return "Hubo un empate";
         }
+    }
+    
+    //Puntos local
+    public void puntoL(int puntosL){
+        if(finalizacion.equals("En juego")){
+            cestasEquipoLocal+=puntosL;
+        }
+    }
+    
+    //Puntos visitante
+    public void puntoV(int puntosV){
+        if(finalizacion.equals("En juego")){
+            cestasEquipoVisitante+=puntosV;
+        }
+    }
+    
+    //Si es empate
+    public void finPartido(){
+        if(cestasEquipoLocal==cestasEquipoVisitante){
+            System.out.println("El partido no puede finalizar porque es un empate.");
+        }
+        else{
+            finalizacion="Finalizo el partido";
+        }
+    }
+    
+    //Mostrar informacion
+    public String mostrarInfo(){
+        System.out.println("Informacion de los partidos: ");
+        System.out.println("El equipo local " +equipoLocal + " obtuvo "+cestasEquipoLocal +" puntos VS el equipo visitante " +equipoVisitante +" obtuvo "+cestasEquipoVisitante+" puntos.");
+        System.out.println("El ganador fue: ");
+        return ganador();
     }
 }

@@ -15,31 +15,15 @@ public class PartidosLiga extends Partidos{
         this.tipoRonda = tipoRonda;
     }
 
-    public int getJornada() {
-        return jornada;
-    }
-
-    public void setJornada(int jornada) {
-        this.jornada = jornada;
-    }
-
-    public String getTipoRonda() {
-        return tipoRonda;
-    }
-
-    public void setTipoRonda(String tipoRonda) {
-        this.tipoRonda = tipoRonda;
-    }
-    
-    //public void mostrar()
-
     @Override
     public String toString() {
         return "PartidosLiga{" + "jornada=" + jornada + ", tipoRonda=" + tipoRonda + '}';
     }
 
     @Override
-    public String ganador() {
-        return super.ganador();
-    } 
+    public String mostrarInfo() {
+        return super.mostrarInfo(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+    }
+    
+    
 }
