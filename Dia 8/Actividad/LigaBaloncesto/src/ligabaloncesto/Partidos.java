@@ -3,9 +3,9 @@ package ligabaloncesto;
 public class Partidos {
     private String equipoLocal;
     private String equipoVisitante;
-    private int cestasEquipoLocal=0;
-    private int cestasEquipoVisitante=0;
-    private String finalizacion = "En juego";
+    private int cestasEquipoLocal;
+    private int cestasEquipoVisitante;
+    private String finalizacion;
     private String fechaPartido;
 
     public Partidos() {}
@@ -13,21 +13,10 @@ public class Partidos {
     public Partidos(String equipoLocal, String equipoVisitante, String fechaPartido) {
         this.equipoLocal = equipoLocal;
         this.equipoVisitante = equipoVisitante;
+        this.cestasEquipoLocal = 0;
+        this.cestasEquipoVisitante = 0;
         this.fechaPartido = fechaPartido;
-    }
-
-    //Ganador
-    public String ganador(){
-        if(cestasEquipoLocal < cestasEquipoVisitante){
-            System.out.println("El equipo ganador es: ");
-            return equipoVisitante;
-        }
-        else if(cestasEquipoLocal > cestasEquipoVisitante){
-            return equipoLocal;
-        }
-        else{
-            return "Hubo un empate";
-        }
+        this.finalizacion = "En juego";
     }
     
     //Puntos local
@@ -44,6 +33,20 @@ public class Partidos {
         }
     }
     
+    //Ganador
+    public String ganador(){
+        if(cestasEquipoLocal < cestasEquipoVisitante){
+            System.out.println("El equipo ganador es: " +equipoVisitante);
+        }
+        else if(cestasEquipoLocal > cestasEquipoVisitante){
+            System.out.println("El equipo ganador es: " +equipoLocal);
+        }
+        else{
+            return "Hubo un empate";
+        }
+        return "Felicidades al ganador!!";
+    }
+    
     //Si es empate
     public void finPartido(){
         if(cestasEquipoLocal==cestasEquipoVisitante){
@@ -58,7 +61,6 @@ public class Partidos {
     public String mostrarInfo(){
         System.out.println("Informacion de los partidos: ");
         System.out.println("El equipo local " +equipoLocal + " obtuvo "+cestasEquipoLocal +" puntos VS el equipo visitante " +equipoVisitante +" obtuvo "+cestasEquipoVisitante+" puntos.");
-        System.out.println("El ganador fue: ");
-        return ganador();
+        return "El equipo ganador es: " + ganador();
     }
 }

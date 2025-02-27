@@ -85,7 +85,9 @@ public class LigaBaloncesto {
 
             }
             if(opc1 == 5){
+                System.out.println("*****************************");
                 partido.mostrarInfo();
+                System.out.println("*****************************");
             }
             if(opc1 == 6){
                 System.out.println("*****************************************************");
