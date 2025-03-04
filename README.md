@@ -12,11 +12,17 @@ En este repositorio se encuentran los ejercicios y las explicaciones del Trainer
 ## Estructura
 |**Dia 3**| **Dia 5**| 
 |-|-|
-|![alt text](image-12.png)|**Ejemplo del Trainer** ![alt text](image-2.png) **Actividad**![alt text](image-3.png)|
+|![alt text](image-12.png)|**Ejemplo del Trainer** ![alt text](image-2.png) |
+||**Actividad**![alt text](image-3.png)|
 |**Dia 6**|**Dia 7**|
-|**Ejemplo del Trainer**![alt text](image-7.png) **Actividad 1**![alt text](image-6.png) **Actividad 2**![alt text](image-5.png) **Actividad 3**![alt text](image-4.png)|**Ejemplo del Trainer**![alt text](image-10.png) **Actividad 1**![alt text](image-8.png) **Actividad 2**![alt text](image-9.png)|
+|**Ejemplo del Trainer**|**Ejemplo del Trainer**
+![alt text](image-7.png) |![alt text](image-10.png)|
+**Actividad 1**![alt text](image-6.png) | **Actividad 1**![alt text](image-8.png)|
+**Actividad 2**![alt text](image-5.png) |  **Actividad 2**![alt text](image-9.png)|
+**Actividad 3**![alt text](image-4.png)|
 |**Dia 8**|
-|**Actividad**![alt text](image-11.png)|
+|**Actividad**|
+|![alt text](image-11.png)|
 
 ## Características
 |Nombre|Descripción|
