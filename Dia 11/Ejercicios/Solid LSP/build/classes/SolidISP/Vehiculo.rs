@@ -1,0 +1,5 @@
+SolidISP.VehiculoVolador
+SolidISP.Barco
+SolidISP.Vehiculo
+SolidISP.Avion
+SolidISP.VehiculoNavegante
