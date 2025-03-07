@@ -26,7 +26,7 @@ public class Ejercicio2 {
        return ConexionMail.getInstance();
     }
 
-    public void enviarEmail(String destinatario, String mensaje){
+    private void enviarEmail(String destinatario, String mensaje){
         ConexionMail conexionMail=null;
         try {
             conexionMail = this.abrirConexionMail();
@@ -36,6 +36,7 @@ public class Ejercicio2 {
           conexionMail.cerrar();
         }
     }
+    
     static class ConexionMail {
 	
 	private static ConexionMail instance;
@@ -43,24 +44,24 @@ public class Ejercicio2 {
 	private ConexionMail() {}
 	
 	public static ConexionMail getInstance() {
-		if(instance == null) {
-                    instance = new ConexionMail();
-		}
-		return instance;
+            if(instance == null) {
+                instance = new ConexionMail();
+            }
+            return instance;
 	}
 	
 	private List<Mail> queue =  new ArrayList<Mail>();
 
 	public void cerrar() {
-		// dummy
+            System.out.println("Conexión de correo cerrada.");
 	}
 
 	public void enviar(Mail mail) {
-		queue.add(mail);		
+            System.out.println("Enviando correo a: "+mail.getAuditor() + "con el mensaje: "+mail.getMensaje());		
 	}
 	
 	public List<Mail> getQueue() {
-		return queue;
+            return queue;
 	}
     }
 
@@ -70,21 +71,21 @@ public class Ejercicio2 {
 	private String mensaje;
 
 	public Mail to(String auditor) {
-		this.auditor = auditor;
-		return this;
+            this.auditor = auditor;
+            return this;
 	}
 
 	public Mail withBody(String mensaje) {
-		this.mensaje = mensaje;
-		return this;
+            this.mensaje = mensaje;
+            return this;
 	}
 
 	public String getAuditor() {
-		return auditor;
+            return auditor;
 	}
 
 	public String getMensaje() {
-		return mensaje;
+            return mensaje;
 	} 
     }
 
@@ -93,16 +94,21 @@ public class Ejercicio2 {
 	private int importe;
 
 	public Transferencia(int importe){
-		this.importe = importe;
+            this.importe = importe;
 	}
 	
 	public int importe() {
-		return importe;
+            return importe;
 	}
-
     }
 
     public static void main(String[] args) {
+        Ejercicio2 auditor = new Ejercicio2();
         
+        Transferencia transferencia1 = new Transferencia(80000);
+        Transferencia transferencia2= new Transferencia(40000);
+        
+        auditor.transferenciaRealizada(transferencia1);
+        auditor.transferenciaRealizada(transferencia2);
     }  
 }
