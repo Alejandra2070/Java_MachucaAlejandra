@@ -14,62 +14,76 @@ import java.util.Scanner;
 public class implementacion {
     
     public static void main(String[] args) throws SQLException {
-        
+
         Scanner scanner = new Scanner(System.in);
         
         System.out.println("----------Bienvenido---------");
         System.out.println("*****************************");
         System.out.println("             Menú            ");
         System.out.println("*****************************");
-        System.out.println("1. Ver perfumes.");
-        System.out.println("2. Agregar perfumes.");
-        System.out.println("3. Actualizar perfumes.");
-        System.out.println("4. Eliminar perfumes.");
-        System.out.println("5. Salir.");
-        System.out.println("Elige una de nuestras opciones: ");
-        int opc = scanner.nextInt();
+        boolean salir = false;
+        while (salir == false){
+            System.out.println("1. Ver perfumes.");
+            System.out.println("2. Agregar perfumes.");
+            System.out.println("3. Actualizar perfumes.");
+            System.out.println("4. Eliminar perfumes.");
+            System.out.println("5. Salir.");
+            System.out.println("Elige una de nuestras opciones: ");
+            int opc = scanner.nextInt();
 
-        switch(opc){
-            case 1:
+            switch(opc){
+                case 1:
 
-                Perfume per = new Perfume();
-                per.mostrarDatos();
+                    Perfume per = new Perfume();
+                    per.mostrarDatos();
 
-                break;
+                    break;
 
-            case 2:
-                /*System.out.println("Ingresa la siguiente información: ");
-                System.out.println("1. Id: ");
-                int ide = scanner.nextInt();
-                System.out.println("2. Nombre del perfume: ");
-                scanner.nextLine();
-                String name = scanner.nextLine();
-                System.out.println("3. Precio: ");
-                int price = scanner.nextInt();
-                System.out.println("4. Cantidad: ");
-                int cant = scanner.nextInt();*/
+                case 2:
+                    System.out.println("Ingresa la siguiente información: ");
+                    System.out.println("1. Nombre del perfume: ");
+                    scanner.nextLine();
+                    String name = scanner.nextLine();
+                    System.out.println("2. Precio: ");
+                    int price = scanner.nextInt();
+                    System.out.println("3. Cantidad: ");
+                    int cant = scanner.nextInt();
 
-                Perfume per2 = new Perfume();
-                per2.añadirDatos(4, "Natura", 45000, 4);
-                /*per2.añadirDatos(ide, name, price, cant);*/
+                    Perfume per2 = new Perfume();
+                    per2.añadirDatos(name, price, cant);
 
-                break;
+                    break;
 
-            case 3:
-                Perfume per3 = new Perfume();
-                per3.actualizar(1,"Natura", 45000, 4);
-                break;
+                case 3:
+                    System.out.println("1. Ingresa el id: ");
+                    int d = scanner.nextInt();
+                    System.out.println("2. Ingresa el nuevo nombre: ");
+                    scanner.nextLine();
+                    String n = scanner.nextLine();
+                    System.out.println("3. Ingresa el nuevo precio: ");
+                    int p = scanner.nextInt();
+                    System.out.println("4. Ingresa la nueva cantidad: ");
+                    int c = scanner.nextInt();
+                    Perfume per3 = new Perfume();
+                    per3.actualizar(n, p, c, d);
+                    break;
 
-            case 4:
-                Perfume per4 = new Perfume();
-                per4.eliminar(4);
-                break;
+                case 4:
+                    System.out.println("Ingresa el id del perfume que quieres eliminar: ");
+                    int i = scanner.nextInt();
+                    Perfume per4 = new Perfume();
+                    per4.eliminar(i);
+                    break;
 
-            case 5:
-                System.out.println("***************************************************************");
-                System.out.println("Muchas gracias por utilizar nuestro programa. Vuelve pronto! :D");
-                System.out.println("***************************************************************");
-                break;     
-        }           
+                case 5:
+                    System.out.println("***************************************************************");
+                    System.out.println("Muchas gracias por utilizar nuestro programa. Vuelve pronto! :D");
+                    System.out.println("***************************************************************");
+                    salir = true;
+                    break;
+            }
+        }
+             
+                  
     }
 }

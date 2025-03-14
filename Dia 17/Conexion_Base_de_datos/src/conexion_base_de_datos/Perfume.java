@@ -7,8 +7,10 @@ public class Perfume {
     public void mostrarDatos(){
         String query="select * from perfumes;";
         try {
-           Connection con=Conexion.conectar(); // Se establece la conexion con bd
-           PreparedStatement ps=con.prepareStatement(query);// Se prepara el comando a realizar
+           Conexion con= new Conexion(); // Se establece la conexion con bd
+           Connection cont = con.conectar();
+           Perfume base = new Perfume();
+           PreparedStatement ps=cont.prepareStatement(query);// Se prepara el comando a realizar
            ResultSet rs=ps.executeQuery();
            while (rs.next()){// el bucle se va a ejecutar mientras que rs tenga registros
                int id=rs.getInt("id");
@@ -24,15 +26,16 @@ public class Perfume {
         }    
     }
     
-    public void añadirDatos( int id, String nombre, int precio, int cantidad){
-        String query = "insert into perfumes (id, nombre, precio, cantidad) VALUES (?, ?, ?, ?, ?)";
+    public void añadirDatos(String nombre, int precio, int cantidad){
+        String query = "insert into perfumes (nombre, precio, cantidad) VALUES (?, ?, ?)";
         try{
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, id);
-            ps.setString(2,nombre);
-            ps.setInt(3, precio);
-            ps.setInt(4, cantidad);
+            Conexion con= new Conexion(); // Se establece la conexion con bd
+            Connection cont = con.conectar();
+            Perfume base = new Perfume();
+            PreparedStatement ps = cont.prepareStatement(query);
+            ps.setString(1,nombre);
+            ps.setInt(2, precio);
+            ps.setInt(3, cantidad);
             
             ps.executeUpdate();
             System.out.println("Dato insertado con éxito.");
@@ -43,15 +46,17 @@ public class Perfume {
         }
     }
     
-    public void actualizar(int id, String nombre, int precio, int cantidad){
-        String query = "update perfumes set nombre=? set precio=? set cantidad=? where id=?";
+    public void actualizar(String nombre, int precio, int cantidad, int id){
+        String query = "UPDATE perfumes SET nombre=? SET precio=? SET cantidad=? where id=?";
         try{
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(query);
-            ps.setInt(1, id);
-            ps.setString(2,nombre);
-            ps.setInt(3, precio);
-            ps.setInt(4, cantidad);
+            Conexion con= new Conexion(); // Se establece la conexion con bd
+            Connection cont = con.conectar();
+            Perfume base = new Perfume();
+            PreparedStatement ps = cont.prepareStatement(query);
+            ps.setString(1,nombre);
+            ps.setInt(2, precio);
+            ps.setInt(3, cantidad);
+            ps.setInt(4, id);
             
             ps.executeUpdate();
             System.out.println("Dato actualizado con éxito.");
@@ -63,10 +68,12 @@ public class Perfume {
     }
     
     public void eliminar(int id){
-        String query = "delete from perfumes set nombre set precio set cantidad=? where id=?";
+        String query = "delete from perfumes set nombre set precio set cantidad where id=?";
         try{
-            Connection con = Conexion.conectar();
-            PreparedStatement ps = con.prepareStatement(query);
+            Conexion con= new Conexion(); // Se establece la conexion con bd
+            Connection cont = con.conectar();
+            Perfume base = new Perfume();
+            PreparedStatement ps = cont.prepareStatement(query);
             ps.setInt(1, id);
             
             ps.executeUpdate();
