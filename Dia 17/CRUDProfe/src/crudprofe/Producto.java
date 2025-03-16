@@ -32,13 +32,13 @@ public class Producto {
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
-    public void setPrecio(int edad){
+    public void setPrecio(double precio){
         this.precio=precio;
     }
 
     @Override
     public String toString() {
-        return id + "," + nombre + "," + precio;
+        return "PR, " + id + "," + nombre + "," + precio;
     }
     
     public static Producto fromString(String string){

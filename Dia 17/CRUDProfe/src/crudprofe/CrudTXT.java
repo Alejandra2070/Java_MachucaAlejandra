@@ -2,6 +2,8 @@ package crudprofe;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,4 +52,71 @@ public class CrudTXT {
             }
         }
     }
+    
+    public static void guardarDatos() {
+        try (FileWriter writer = new FileWriter(archivo)) {
+            for (Persona p : personas) {
+                writer.write(p.toString() + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("Error al guardar datos: " + e.getMessage());
+        }
+    }
+    
+    public static void guardarDatosProductos() {
+        try (FileWriter writer = new FileWriter(archivo)) {
+            for (Producto p : productos) {
+                writer.write(p.toString() + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("Error al guardar datos: " + e.getMessage());
+        }
+    }
+
+    // Crear
+    public static void agregarPersona(int id, String nombre, int edad) {
+        personas.add(new Persona(id, nombre, edad));
+        guardarDatos();
+    }
+    
+    public static void agregarProducto(int id, String nombre, double precio) {
+        productos.add(new Producto(id, nombre, precio));
+        guardarDatosProductos();
+    }
+
+    // Actualizar
+    public static void actualizarPersona(int id, String nuevoNombre, int nuevaEdad) {
+        for (Persona p : personas) {
+            if (p.getId() == id) {
+                p.setNombre(nuevoNombre);
+                p.setEdad(nuevaEdad);
+                guardarDatos();
+                return;
+            }
+        }
+        System.out.println("Persona con ID " + id + " no encontrada.");
+    }
+    
+    public static void actualizarProducto(int id, String nuevoNombre, double precio) {
+        for (Producto p : productos) {
+            if (p.getId() == id) {
+                p.setNombre(nuevoNombre);
+                p.setPrecio(precio);
+                guardarDatosProductos();
+                return;
+            }
+        }
+        System.out.println("Producto con ID " + id + " no encontrado.");
+    }
+
+    // Eliminar
+    public static void eliminarPersona(int id) {
+        personas.removeIf(p -> p.getId() == id);
+        guardarDatos();
+    } 
+    
+    public static void eliminarProducto(int id) {
+        productos.removeIf(p -> p.getId() == id);
+        guardarDatosProductos();
+    } 
 }
