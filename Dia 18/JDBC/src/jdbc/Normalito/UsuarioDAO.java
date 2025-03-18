@@ -77,7 +77,7 @@ public class UsuarioDAO {
             int filas = solicitud.executeUpdate();
             if(filas > 0){
                 System.out.println("************************");
-                System.out.println("Usuario atualizado de manera exitosa!");
+                System.out.println("Usuario actualizado de manera exitosa!");
             }
             else{
                 System.out.println("No se pudo actualizar el usuario con ID "+id);
@@ -87,5 +87,44 @@ public class UsuarioDAO {
         catch(SQLException e){
             e.printStackTrace();
         }
+    }
+    
+    //Eliminar (delete)
+    public void eliminarUsuario(int id){
+        String sql = "delete from usuarios where id=?";
+        try{
+            Connection conexionInterna = conectar(); // Se establece la conexion con bd
+            PreparedStatement solicitud = conexionInterna.prepareStatement(sql);
+            solicitud.setInt(1, id);
+            
+            solicitud.executeUpdate();
+            System.out.println("Usuario eliminado con éxito.");
+        }
+        catch(SQLException ex){
+            System.out.println("Error al eliminar usuario.");
+            ex.printStackTrace();
+        }
+    }
+    
+    //Filtrar por id
+    public List<String> filtrarUsuarios(int ide){
+        String sql = "select * from usuarios where id = " + ide;
+        List<String> listaUsuariosFiltrado = new ArrayList<>();
+        
+        try(
+            Connection conexionInterna = conectar();
+            PreparedStatement solicitud = conexionInterna.prepareStatement(sql);
+            ResultSet resultado = solicitud.executeQuery();
+            ){
+                while (resultado.next()){
+                    listaUsuariosFiltrado.add(resultado.getInt("id")+
+                    " - " + resultado.getString("nombre") + " - "+
+                    resultado.getString("email"));
+                }
+        }
+        catch(SQLException e){
+            e.printStackTrace();
+        }
+        return listaUsuariosFiltrado;
     }
 }
