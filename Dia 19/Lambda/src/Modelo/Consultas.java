@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Consultas extends Conexion {
     
@@ -119,5 +121,26 @@ public class Consultas extends Conexion {
                 System.err.println(e);
             }
         }
+    }
+    
+    public List<String> obtenerUsuario(){
+        String sql =" select * from usuarios";
+        List<String> ListaUsuario = new ArrayList<>();
+        try{
+            Connection cx = getConexion();
+            PreparedStatement solicitud =cx.prepareStatement(sql);
+            ResultSet resultado = solicitud.executeQuery();
+            while(resultado.next()){
+                ListaUsuario.add(resultado.getInt("id")
+                        + " - "+ resultado.getString("nombre")+ " - " 
+                                +resultado.getString("email"));
+            }
+            
+        }catch(SQLException e){
+        
+            e.printStackTrace();
+        }
+        return ListaUsuario;
+       
     }
 }

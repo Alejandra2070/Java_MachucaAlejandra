@@ -5,6 +5,7 @@ import Modelo.Usuarios;
 import Vista.FrameU;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 public class ControladorUsuario implements ActionListener{
@@ -22,6 +23,7 @@ public class ControladorUsuario implements ActionListener{
         this.vista.eliminar.addActionListener(this);
         this.vista.limpiar.addActionListener(this);
         this.vista.buscar.addActionListener(this);
+        this.vista.botonVer.addActionListener(this);
     }
     
     public void iniciar() {
@@ -78,12 +80,26 @@ public class ControladorUsuario implements ActionListener{
             modelo.setId(Integer.parseInt(vista.txtId.getText()));
             
             if(consultas.obtener(modelo)){
-                vista.txtName.setText(modelo.getNombre());
-                vista.txtEmail.setText(modelo.getEmail());
+                vista.ver.setText(modelo.getNombre() + " \n" +modelo.getEmail());
             }
             else{
                 JOptionPane.showMessageDialog(null, "No se encontró al usuario.");
             }
+        }
+        
+        if (e.getSource() == vista.botonVer) {
+            vista.ver.setText("");
+            List<String> result=consultas.obtenerUsuario();
+            if (result.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "usuario no encontrado");
+                limpiar();
+            } 
+            else {
+                for(String usuarios : result){
+                    vista.ver.append(usuarios + "\n");
+                }
+                limpiar();
+            }  
         }
         
         if(e.getSource() == vista.limpiar){
